@@ -2,17 +2,23 @@
 Parameter Identification via Kalman Filter on a model motor glider
 
 ---------------------------------------------------------------------------------
-STRUCTURE OF FOLDERS AND FILES 
+Structure of folders and files  
 ---------------------------------------------------------------------------------
 
 
 simulink_model 
+
 	- testEnvironment.slx 
+ 
 		* Test environment including model of the Vitesse and added sensors 
 		(Meyer-Brügel, Modifications by me)
+  
 	- init_testEnvironment.m
+ 
 		* initializes and opens test environment
+  
 	- Init 
+ 
 		* contains scripts and data for initialization 
 		(Meyer-Brügel)
 
