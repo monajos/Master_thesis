@@ -4,8 +4,8 @@ function [] = plot_states_outputs(t,Z,sxekf,sxukf,sxukfaug,syekf,syukf,syukfaug,
 
     % plot pitch rate, longitudinal horizontal and vertical acceleration for
     % longitudinal estimation
+    r2d = 180/pi;
     if onlylongitudinal
-        r2d = 180/pi;
         figure
     
         subplot(3,1,1)
@@ -63,7 +63,7 @@ function [] = plot_states_outputs(t,Z,sxekf,sxukf,sxukfaug,syekf,syukf,syukfaug,
         hold on;
         plot(t, sxukf(:,1)*r2d, 'Color', [0.2 0.2 0.9], 'LineWidth', 1);
         plot(t, sxukfaug(:,1)*r2d, 'Color', [0.5 0.5 0.5], 'LineWidth', 1);
-        plot(t, Maneuver.p*r2d, 'r', 'LineWidth', 1);
+        plot(t, Z(:,1)*r2d, 'r', 'LineWidth', 1);
         hold off;
         
         title('p', 'Interpreter', 'latex');
@@ -79,7 +79,7 @@ function [] = plot_states_outputs(t,Z,sxekf,sxukf,sxukfaug,syekf,syukf,syukfaug,
         hold on;
         plot(t, sxukf(:,3)*r2d, 'Color', [0.2 0.2 0.9], 'LineWidth', 1);
         plot(t, sxukfaug(:,3)*r2d, 'Color', [0.5 0.5 0.5], 'LineWidth', 1);
-        plot(t, Maneuver.r*r2d, 'r', 'LineWidth', 1);
+        plot(t, Z(:,3)*r2d, 'r', 'LineWidth', 1);
         hold off;
         
         title('r', 'Interpreter', 'latex');
@@ -94,7 +94,7 @@ function [] = plot_states_outputs(t,Z,sxekf,sxukf,sxukfaug,syekf,syukf,syukfaug,
         hold on;
         plot(t, syukf(:,5), 'Color', [0.2 0.2 0.9], 'LineWidth', 1);
         plot(t, syukfaug(:,5), 'Color', [0.5 0.5 0.5], 'LineWidth', 1);
-        plot(t, Maneuver.v_d, 'r', 'LineWidth', 1);
+        plot(t, Z(:,5), 'r', 'LineWidth', 1);
         hold off;
         
         title('$\dot{v}_{kb}$', 'Interpreter', 'latex');

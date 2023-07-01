@@ -59,16 +59,16 @@ function [Nx, Ny, Nu, NparSys, Nparam, NparID, Nxp, dt, Ndata,...
 
         % Load flight data;            
         if strcmp(Man,'3211')
-            filename = ['testflight_maneuver_log_data\Flight_3_Maneuver_',...
+            filename = ['..\flight_test_eval\testflight_maneuver_log_data\Flight_3_Maneuver_',...
                 num2str(ManeuverNo),'_Elevator_3211_p1s.mat'];
         elseif strcmp(Man,'banktobank')
-            filename = ['testflight_maneuver_log_data\Flight_4_Maneuver_',...
+            filename = ['..\flight_test_eval\testflight_maneuver_log_data\Flight_4_Maneuver_',...
                 num2str(ManeuverNo),'_Bank_to_bank_p1s.mat'];
         elseif strcmp(Man,'rudderdoublet')
-            filename = ['testflight_maneuver_log_data\Flight_4_Maneuver_',...
+            filename = ['..\flight_test_eval\testflight_maneuver_log_data\Flight_4_Maneuver_',...
                 num2str(ManeuverNo),'_Rudder_doublet_p1s.mat'];     
         elseif strcmp(Man,'openloopflight')
-            filename = 'testflight_maneuver_log_data\Flight_1_openloop.mat';
+            filename = '..\flight_test_eval\testflight_maneuver_log_data\Flight_1_openloop.mat';
         end
         load(filename);
 
@@ -227,6 +227,7 @@ function [Nx, Ny, Nu, NparSys, Nparam, NparID, Nxp, dt, Ndata,...
         parFlag(19) = 0;     % CDeta
         parFlag(20) = 0;     % CDalpha
         parFlag(21) = 0;     % CDalpha2
+        parFlag(22) = 0;    % CDbeta2
        
         parFlag(28) = 0;    % CL0
         parFlag(29) = 0;    % CLalpha    
@@ -239,7 +240,6 @@ function [Nx, Ny, Nu, NparSys, Nparam, NparID, Nxp, dt, Ndata,...
     % not estimating aileron derivs for rudderdoublet and 3211
     if strcmp(Man,'rudderdoublet') || strcmp(Man,'3211')
         parFlag(5) = 0;     % Clxi
-        parFlag(22) = 0;    % CDbeta2
         parFlag(15) = 0;    % Cnxi        
     end
 

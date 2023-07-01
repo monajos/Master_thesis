@@ -24,7 +24,7 @@ global ManeuverNo pa0_val optimizing methodNo onlylongitudinal onlylateral...
 estimonlyparam      = 0; 
 
 % Running filters for optimizing purposes?
-optimizing          = 1; 
+optimizing          = 0; 
 
 % Estimate only longitudinal parameters?
 onlylongitudinal    = 1; 
@@ -39,17 +39,17 @@ repeatdata          = 0;
 if ~optimizing
 
     % Filter simulink or flight test data 
-    % initdata = 'log';
-    initdata = 'simulink';       
+    initdata = 'log';
+%     initdata = 'simulink';       
 
     % select Maneuver and Maneuver number 
     if strcmp(initdata,'log')
-%         Man = '3211';             % --> ManeuverNo 13
+        Man = '3211';             % --> ManeuverNo 13
 %         Man = 'banktobank';       % --> ManeuverNo 6
 %         Man = 'rudderdoublet';    % --> ManeuverNo 13
-        Man = 'openloopflight';
+%         Man = 'openloopflight';
 
-        ManeuverNo = 6;
+        ManeuverNo = 13;
     end
         
     % select Filter type

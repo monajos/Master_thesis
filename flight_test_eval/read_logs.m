@@ -91,7 +91,7 @@ Z = [p q r u_d v_d w_d Phi Theta Psi ue ve we H pdyn];
 % convert pwm signals to inputs zeta, eta, xi, thrust
 % angle conversion based on measurements
 % thrust based on maximum thrust
-output_zeta     = (3-((actuator_outputs{1, 1}.output(:,4)-1500)/500).*3./0.1)./180*pi;   
+output_zeta     = (3-((actuator_outputs{1, 1}.output(:,4)-1500)/500).*3.0/0.1)./180*pi;   
 output_eta      = (-((actuator_outputs{1, 1}.output(:,3)-1500)/500)*12.5./0.6)./180*pi;  
 output_xi       = (-((actuator_outputs{1, 1}.output(:,1)-1500)/500)*17.5./0.6)./180*pi;  
 output_thrust   = ((actuator_outputs{1, 1}.output(:,5)-1000)/1000)*10;                   
